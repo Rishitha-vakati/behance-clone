@@ -1,0 +1,200 @@
+<!DOCTYPE html>z
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behance Clone</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .project {
+      width: 35%; /* Adjust the width as needed */
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .project img {
+      width: 100%;
+      height: 350px;
+      
+      object-fit: cover;
+     
+    }
+
+    .project-info {
+      padding: 15px;
+    }
+
+    .project-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    element.style {
+        width: 100%;
+    height: 50%;
+    size: a4;
+    margin-bottom: 50px;
+}
+    
+
+    .project-description {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      padding: 20px;
+      width: 300px;
+    }
+
+    .category-dropdown {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Behance Clone</h1>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+  </div>
+
+  <div class="category-dropdown">
+    <label for="category">Sort by Category:</label>
+    <select id="category">
+      <option value="all">All Categories</option>
+      <option value="design">Design</option>
+      <option value="photography">Photography</option>
+      <!-- Add more categories as needed -->
+    </select>
+  </div>
+
+  <section id="projectsSection">
+    <!-- Projects will be dynamically added here -->
+    <!-- ... (previous code) ... -->
+
+<section id="projectsSection">
+    <!-- Project 1 -->
+    
+  </section>
+  
+  <!-- ... (remaining code) ... -->
+  
+  </section>
+
+  <script>
+    // Sample data for projects (replace with your own data)
+    const projects = [
+      { title: "DOLL", description: "See more ideas about doll images hd, cute baby dolls, cute girl hd wallpaper.", category: "design", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIdlWSS1IT9Un7ecF6iswr-U6XawU7CWKBWA&usqp=CAU" },
+      { title: "AVACADO DOLL", description: "Search from thousands of royalty-free Doll stock images and video for your next project.", category: "photography", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuYl1REEcvtrf8pO5Rd0GRQSnuWrMvFqxbww&usqp=CAU" },
+      // Add more project data as needed
+      { title: "CAT IMAGE", description: "beautiful Cat stock images, photos and wallpaper for royalty-free download from the creative contributors ", category: "design", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTieQT_sjM7y6M23RzF8AmI09jFm2OgWiQ5bQ&usqp=CAU" },
+      { title: "MORNING", description: "Help them jump out of it with hilarious, relatable and motivating good morning Monday images and quotes.", category: "photography", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD95bzxZOrQtYrysmJlqhkSr_lC4gkKrDqUg&usqp=CAU" },
+    
+      { title: "FOOD PICS", description: "Find Food stock images in HD and millions of other royalty-free stock photos, 3D objects, illustrations and vectors in the collection.", category: "design", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs2UWyb7aiHPotO8E1UayD_RlFFWeTDF8v0A&usqp=CAU" },
+      { title: "BURGER", description: "Free images of Breakfast. Browse breakfast images and find your perfect picture. Free HD download. ", category: "photography", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRqLbK8RpP4Q4BZzIE4TF4Hii9GCRWBFiUoQ&usqp=CAU" },
+      // Add more project data as needed
+      { title: "VARIETY ITEMS", description: "Free images of Breakfast. Browse breakfast images and find your perfect picture. Free HD download. ", category: "design", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYBdE5cn1TBOMVdGmHLfP27Y9UxkkuFpqU-A&usqp=CAU" },
+      { title: "SANDWICH", description: "Search from thousands of royalty-free Breakfast stock images and video for your next project ... breakfast eating concept, various morning food - pancakes, ...", category: "photography", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIFl225qetjy1ZoKAEPJqDKNOCp-6I6eJAg&usqp=CAU" },
+      // Add more project data as needed
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const categoryDropdown = document.getElementById("category");
+    const projectsSection = document.getElementById("projectsSection");
+
+    // Populate projects initially
+    displayProjects(projects);
+
+    // Event listeners
+    searchInput.addEventListener("input", handleSearchInput);
+    categoryDropdown.addEventListener("change", handleCategoryChange);
+
+    // Functions
+    function displayProjects(projects) {
+      projectsSection.innerHTML = "";
+      projects.forEach(project => {
+        const projectElement = createProjectElement(project);
+        projectsSection.appendChild(projectElement);
+      });
+    }
+
+    function createProjectElement(project) {
+      const projectDiv = document.createElement("div");
+      projectDiv.classList.add("project");
+
+      const projectImage = document.createElement("img");
+      projectImage.src = project.image;
+      projectDiv.appendChild(projectImage);
+
+      const projectInfo = document.createElement("div");
+      projectInfo.classList.add("project-info");
+
+      const projectTitle = document.createElement("div");
+      projectTitle.classList.add("project-title");
+      projectTitle.textContent = project.title;
+
+      const projectDescription = document.createElement("div");
+      projectDescription.classList.add("project-description");
+      projectDescription.textContent = project.description;
+
+      projectInfo.appendChild(projectTitle);
+      projectInfo.appendChild(projectDescription);
+      projectDiv.appendChild(projectInfo);
+
+      return projectDiv;
+    }
+
+    function handleSearchInput() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredProjects = projects.filter(project =>
+        project.title.toLowerCase().includes(searchTerm) ||
+        project.description.toLowerCase().includes(searchTerm)
+      );
+      displayProjects(filteredProjects);
+    }
+
+    function handleCategoryChange() {
+      const selectedCategory = categoryDropdown.value;
+      if (selectedCategory === "all") {
+        displayProjects(projects);
+      } else {
+        const filteredProjects = projects.filter(project => project.category === selectedCategory);
+        displayProjects(filteredProjects);
+      }
+    }
+  </script>
+</body>
+</html>
